@@ -1,0 +1,166 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #ffe1ec, #fff7fb);
+  color: #2b2b2b;
+  overflow: hidden;
+  padding: 18px;
+}
+
+.card {
+  width: min(560px, 92vw);
+  background: rgba(255,255,255,0.92);
+  border-radius: 24px;
+  padding: 28px 22px 22px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.14);
+  text-align: center;
+  position: relative;
+  border: 2px solid rgba(255, 46, 122, 0.12);
+}
+
+.badge{
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: rgba(255, 46, 122, 0.12);
+  margin-bottom: 12px;
+}
+
+h1{
+  margin: 8px 0 10px;
+  font-size: 2rem;
+  letter-spacing: 0.2px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.btn{
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.14);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:active{
+  transform: translateY(2px) scale(0.98);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.14);
+}
+
+.yes{
+  background: #ff6b9a;
+  color: white;
+}
+
+.yesplus{
+  background: #ff2e7a;
+  color: white;
+  position: relative;
+}
+
+.yesplus::after{
+  content:" ✨";
+}
+
+.math-joke{
+  margin: 6px auto 0;
+  width: min(480px, 95%);
+  font-weight: 800;
+  font-size: 1rem;
+  background: rgba(255, 46, 122, 0.10);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+
+.result{
+  margin: 18px auto 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 107, 154, 0.14);
+  display: none;
+  font-weight: 800;
+  width: min(520px, 96%);
+}
+
+/* Floating hearts in the background */
+.heart{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg);
+  background: rgba(255, 46, 122, 0.25);
+  animation: floatUp 6s linear infinite;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.heart::before, .heart::after{
+  content:"";
+  position:absolute;
+  width:16px;
+  height:16px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.heart::before{ left:-8px; top:0; }
+.heart::after{ top:-8px; left:0; }
+
+@keyframes floatUp{
+  from { transform: translateY(35vh) rotate(45deg); opacity: 0; }
+  10%  { opacity: 1; }
+  to   { transform: translateY(-130vh) rotate(45deg); opacity: 0; }
+}
+
+/* Confetti hearts when clicked */
+.confetti{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti span{
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  background: rgba(255, 46, 122, 0.60);
+  border-radius: 3px;
+  animation: pop 1.15s ease forwards;
+}
+
+.confetti span::before, .confetti span::after{
+  content:"";
+  position:absolute;
+  width:12px;
+  height:12px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.confetti span::before{ left:-6px; top:0; }
+.confetti span::after{ top:-6px; left:0; }
+
+@keyframes pop{
+  0%   { transform: translateY(0) rotate(45deg) scale(0.7); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(280px) rotate(45deg) scale(1.15); opacity: 0; }
+}
